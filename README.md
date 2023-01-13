@@ -17,12 +17,12 @@ make install
 
 In order to generate the needed chain link JSON ,you can run this command for the target provider chain:
 ```bash
-chain-link-tool generate [provider]
+chain-link-tool create-chain-link-json [provider]
 ```
 
 For example:
 ```bash
-chain-link-tool generate nomic
+chain-link-tool create-chain-link-json nomic
 ```
 
 Once you have built the JSON object using this command, you can then run the following command to complete the linkage:
