@@ -6,7 +6,6 @@ require (
 	github.com/cosmos/cosmos-sdk v0.45.11
 	github.com/desmos-labs/desmos/v4 v4.7.0
 	github.com/manifoldco/promptui v0.9.0
-	github.com/mr-tron/base58 v1.2.0
 	github.com/spf13/cobra v1.6.1
 )
 
@@ -88,6 +87,7 @@ require (
 	github.com/mimoo/StrobeGo v0.0.0-20210601165009-122bf33a46e0 // indirect
 	github.com/minio/highwayhash v1.0.2 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
+	github.com/mr-tron/base58 v1.2.0 // indirect
 	github.com/mtibben/percent v0.2.1 // indirect
 	github.com/pelletier/go-toml v1.9.5 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.5 // indirect
