@@ -24,7 +24,7 @@ func (g *nomicGetter) getPrivateKeyPath() (string, error) {
 	}
 	prompt := promptui.Prompt{
 		Label:   "Please insert the path of private key (fully qualified path)",
-		Default: path.Join(wd, "xpriv"),
+		Default: path.Join(wd, "privkey"),
 	}
 	return prompt.Run()
 }

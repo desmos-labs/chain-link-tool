@@ -4,12 +4,10 @@ import (
 	"encoding/hex"
 	"fmt"
 	"os"
-	"strings"
 
 	"github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/mr-tron/base58"
 
 	"github.com/desmos-labs/desmos/v4/x/profiles/client/utils"
 	profilestypes "github.com/desmos-labs/desmos/v4/x/profiles/types"
@@ -77,23 +75,16 @@ func (b *NomicBuilder) BuildChainLinkJSON() (utils.ChainLinkJSON, error) {
 }
 
 func parseNomicPrivateKeyFromFile(file string) (cryptotypes.PrivKey, error) {
-	bz, err := os.ReadFile(file)
+	keyBz, err := os.ReadFile(file)
 	if err != nil {
 		return nil, err
 	}
 
-	// Decode key from prefixed base58 encoded private key
-	key := strings.Replace(string(bz), "xprv", "", 0)
-	keyBz, err := base58.Decode(key)
-	if err != nil {
-		return nil, fmt.Errorf("failed decode key to bytes")
-	}
-
-	if len(keyBz) < secp256k1.PrivKeySize {
+	if len(keyBz) != secp256k1.PrivKeySize {
 		return nil, fmt.Errorf("invalid private key length")
 	}
 
 	return &secp256k1.PrivKey{
-		Key: keyBz[:secp256k1.PrivKeySize],
+		Key: keyBz,
 	}, nil
 }
